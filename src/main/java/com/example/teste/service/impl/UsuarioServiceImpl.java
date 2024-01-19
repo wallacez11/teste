@@ -17,7 +17,7 @@ import java.util.Optional;
 @Service
 public class UsuarioServiceImpl implements UsuarioService {
 
-    @Autowired
+
     private UserRepository userRepository;
     @Override
     public void addUser(User user) {

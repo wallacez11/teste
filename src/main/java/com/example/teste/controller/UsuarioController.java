@@ -4,6 +4,7 @@ import com.example.teste.model.StatusRegistro;
 import com.example.teste.model.User;
 import com.example.teste.service.UsuarioService;
 import jakarta.persistence.EntityNotFoundException;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,10 +13,11 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/api/service")
+@RequiredArgsConstructor
 public class UsuarioController {
 
-    @Autowired
+
     private UsuarioService userService;
 
     @PostMapping("/create")
@@ -25,7 +27,7 @@ public class UsuarioController {
         return "Usuario adicionado com sucesso";
     }
 
-    @GetMapping("/getAll")
+    @GetMapping("/users")
     public List<User> getAllUsers(){
        return userService.getUsers();
     }
@@ -36,7 +38,7 @@ public class UsuarioController {
         return ResponseEntity.noContent().build();
     }
 
-    @GetMapping("/getByCpf")
+    @GetMapping("/user")
     public ResponseEntity<User> getUserByCpf(@RequestParam String cpf){
         return Optional
                 .ofNullable( userService.getUser(cpf) )
