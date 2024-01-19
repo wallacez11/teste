@@ -2,10 +2,13 @@ package com.example.teste.controller;
 
 import com.example.teste.model.User;
 import com.example.teste.service.UsuarioService;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/user")
@@ -27,7 +30,10 @@ public class UsuarioController {
     }
 
     @GetMapping("/getByCpf")
-    public User getUserByCpf(@RequestParam String cpf){
-        return userService.getUser(cpf);
+    public ResponseEntity<User> getUserByCpf(@RequestParam String cpf){
+        return Optional
+                .ofNullable( userService.getUser(cpf) )
+                .map( user -> ResponseEntity.ok().body(user) )
+                .orElseGet( () -> ResponseEntity.notFound().build() );
     }
 }

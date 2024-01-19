@@ -3,6 +3,7 @@ package com.example.teste.service.impl;
 import com.example.teste.model.User;
 import com.example.teste.repository.UserRepository;
 import com.example.teste.service.UsuarioService;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,6 +26,8 @@ public class UsuarioServiceImpl implements UsuarioService {
 
     @Override
     public User getUser(String cpf) {
-        return null;
+        return userRepository.findByCpf(cpf);
     }
+
+
 }
