@@ -1,9 +1,7 @@
 package com.example.teste.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.SourceType;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -15,6 +13,7 @@ import java.time.LocalDateTime;
 
 @Data
 @AllArgsConstructor
+@RequiredArgsConstructor
 @NoArgsConstructor
 @Entity
 public class User {
@@ -23,18 +22,24 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NonNull
     @Column(unique = true, nullable = false)
     private String cpf;
 
+    @NonNull
     @Column(nullable = false)
     private String nome;
 
+    @NonNull
     @Column(nullable = true)
     private LocalDate dataNascimento;
 
+    @NonNull
     @Embedded
+    @Column(nullable = false)
     private  Address endereco;
 
+    @NonNull
     @Column(nullable = false)
     private StatusRegistro status = StatusRegistro.ATIVO;
 
@@ -57,7 +62,6 @@ public class User {
 
     @Column(nullable = true)
     private String usuarioRemocao;
-
 
 
 }
