@@ -4,6 +4,9 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.SourceType;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -35,6 +38,7 @@ public class User {
     @Column(nullable = false)
     private StatusRegistro status = StatusRegistro.ATIVO;
 
+    @CreationTimestamp(source = SourceType.DB)
     @Column(nullable = true, updatable = false)
     private LocalDateTime dataHoraCriacao;
 
@@ -44,6 +48,7 @@ public class User {
     @Column(nullable = true)
     private LocalDateTime dataHoraAtualizacao;
 
+    @UpdateTimestamp(source = SourceType.DB)
     @Column(nullable = true)
     private String usuarioAtualizacao;
 
