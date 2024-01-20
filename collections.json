@@ -14,7 +14,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0ZUB0ZXN0ZS5jb20iLCJpYXQiOjE3MDU3MDMxNjQsImV4cCI6MTcwNTcwNDYwNH0.QlTTWUCZtg5VXk4ONOKass9MgvZO0mbP5TajoZfzi5U",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJlbWFpbEBlbWFpbC5jb20iLCJpYXQiOjE3MDU3NjQ5NTIsImV4cCI6MTcwNTc2NjM5Mn0.STaWZDN5bHCChBuc6XB2vqfckWfMJkN0qPpLQBnL13s",
 							"type": "string"
 						}
 					]
@@ -23,7 +23,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"cpf\": \"10\",\r\n  \"nome\": \"nome exemplo\",\r\n  \"dataNascimento\": \"1000-01-01\",\r\n  \"endereco\": {\r\n    \"rua\": \"Rua exemplo\",\r\n    \"numero\": \"555\",\r\n    \"complemento\": \"Apto 45\",\r\n    \"bairro\": \"Bairro Exemplo\",\r\n    \"cidade\": \"Cidade Exemplo\",\r\n    \"estado\": \"Estado Exemplo\",\r\n    \"cep\": \"12345-678\"\r\n  }\r\n}",
+					"raw": "{\r\n  \"cpf\": \"1\",\r\n  \"nome\": \"nome exemplo\",\r\n  \"dataNascimento\": \"1000-01-01\",\r\n  \"endereco\": {\r\n    \"rua\": \"Rua exemplo\",\r\n    \"numero\": \"555\",\r\n    \"complemento\": \"Apto 45\",\r\n    \"bairro\": \"Bairro Exemplo\",\r\n    \"cidade\": \"Cidade Exemplo\",\r\n    \"estado\": \"Estado Exemplo\",\r\n    \"cep\": \"12345-678\"\r\n  }\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -54,7 +54,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0ZUB0ZXN0ZS5jb20iLCJpYXQiOjE3MDU2OTk2MjksImV4cCI6MTcwNTcwMTA2OX0.NB42fh_4TDSI8h9gSagtLMemCd_8He3DHi22ok2kBFI",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJlbWFpbEBlbWFpbC5jb20iLCJpYXQiOjE3MDU3NjkwMDAsImV4cCI6MTcwNTc3MDQ0MH0.BLCx555Pg7aI_no41Tbu6UuahLJrWANpYumtGEkJtQ4",
 							"type": "string"
 						}
 					]
@@ -85,7 +85,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0ZUB0ZXN0ZS5jb20iLCJpYXQiOjE3MDU3MDIxMzQsImV4cCI6MTcwNTcwMzU3NH0.wTxdiC7UEbsvgY5hFo8VKPdbJUH5r07-8TfsBveHuJ8",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJlbWFpbEBlbWFpbC5jb20iLCJpYXQiOjE3MDU3NjQ5NTIsImV4cCI6MTcwNTc2NjM5Mn0.STaWZDN5bHCChBuc6XB2vqfckWfMJkN0qPpLQBnL13s",
 							"type": "string"
 						}
 					]
@@ -93,7 +93,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/api/service/user?cpf=08",
+					"raw": "http://localhost:8080/api/service/user?cpf=555",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -107,7 +107,7 @@
 					"query": [
 						{
 							"key": "cpf",
-							"value": "08"
+							"value": "555"
 						}
 					]
 				}
@@ -122,7 +122,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0ZUB0ZXN0ZS5jb20iLCJpYXQiOjE3MDU3MDIxMzQsImV4cCI6MTcwNTcwMzU3NH0.wTxdiC7UEbsvgY5hFo8VKPdbJUH5r07-8TfsBveHuJ8",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJlbWFpbEBlbWFpbC5jb20iLCJpYXQiOjE3MDU3NjkwMDAsImV4cCI6MTcwNTc3MDQ0MH0.BLCx555Pg7aI_no41Tbu6UuahLJrWANpYumtGEkJtQ4",
 							"type": "string"
 						}
 					]
@@ -131,7 +131,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"cpf\": \"10\",\r\n  \"nome\": \"nome exemplo\",\r\n  \"dataNascimento\": \"1000-01-01\",\r\n  \"endereco\": {\r\n    \"rua\": \"Rua exemplo\",\r\n    \"numero\": \"555\",\r\n    \"complemento\": \"Apto 45\",\r\n    \"bairro\": \"Bairro Exemplo\",\r\n    \"cidade\": \"Cidade Exemplo\",\r\n    \"estado\": \"Estado Exemplo\",\r\n    \"cep\": \"12345-678\"\r\n  }\r\n}",
+					"raw": "{\r\n  \"nome\": \"nome update\",\r\n  \"dataNascimento\": \"1000-01-01\",\r\n  \"endereco\": {\r\n    \"rua\": \"Rua update\",\r\n    \"numero\": \"555\",\r\n    \"complemento\": \"Apto 45\",\r\n    \"bairro\": \"Bairro Exemplo\",\r\n    \"cidade\": \"Cidade Exemplo\",\r\n    \"estado\": \"Estado Exemplo\",\r\n    \"cep\": \"12345-678\"\r\n  }\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -139,7 +139,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/api/service/update/08",
+					"raw": "http://localhost:8080/api/service/update/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -149,7 +149,7 @@
 						"api",
 						"service",
 						"update",
-						"08"
+						"1"
 					]
 				}
 			},
@@ -158,19 +158,30 @@
 		{
 			"name": "deleteUser",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJlbWFpbEBlbWFpbC5jb20iLCJpYXQiOjE3MDU3NjQ5NTIsImV4cCI6MTcwNTc2NjM5Mn0.STaWZDN5bHCChBuc6XB2vqfckWfMJkN0qPpLQBnL13s",
+							"type": "string"
+						}
+					]
+				},
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/user/delete/100",
+					"raw": "http://localhost:8080/api/service/delete/55",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"user",
+						"api",
+						"service",
 						"delete",
-						"100"
+						"55"
 					]
 				}
 			},
@@ -213,7 +224,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"email\":\"exemplo@exemplo.com\",\r\n    \"password\":\"123\"\r\n}",
+					"raw": "{\r\n    \"email\":\"email@email.com\",\r\n    \"password\":\"123\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"

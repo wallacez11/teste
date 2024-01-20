@@ -1,6 +1,7 @@
 package com.example.teste.service.impl;
 
 import com.example.teste.config.JwtService;
+import com.example.teste.dto.UsersResponse;
 import com.example.teste.model.StatusRegistro;
 import com.example.teste.model.User;
 import com.example.teste.repository.UserRepository;
@@ -32,7 +33,7 @@ public class UsuarioServiceImpl implements UsuarioService {
     }
 
     @Override
-    public List<User> getUsers() {
+    public List<UsersResponse> getUsers() {
         return userRepository.findByStatus(StatusRegistro.ATIVO);
     }
 

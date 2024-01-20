@@ -1,5 +1,6 @@
 package com.example.teste.controller;
 
+import com.example.teste.dto.UsersResponse;
 import com.example.teste.model.StatusRegistro;
 import com.example.teste.model.User;
 import com.example.teste.service.UsuarioService;
@@ -24,11 +25,11 @@ public class UsuarioController {
     public String addUser(@RequestBody User user){
         userService.addUser(user);
 
-        return "Usuario adicionado com sucesso";
+        return "Usuário adicionado com sucesso";
     }
 
     @GetMapping("/users")
-    public List<User> getAllUsers(){
+    public List<UsersResponse> getAllUsers(){
        return userService.getUsers();
     }
 

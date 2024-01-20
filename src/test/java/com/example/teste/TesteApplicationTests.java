@@ -1,6 +1,8 @@
 package com.example.teste;
 
 import com.example.teste.config.JwtService;
+import com.example.teste.dto.EnderecoResponse;
+import com.example.teste.dto.UsersResponse;
 import com.example.teste.model.Address;
 import com.example.teste.model.StatusRegistro;
 import com.example.teste.model.User;
@@ -66,12 +68,12 @@ class UserServiceImplTest {
 		Address address1 = new Address("Rua XYZ", "123", "Complemento", "Bairro", "Cidade", "Estado", "CEP");
 		Address address2 = new Address("Avenida ABC", "456", null, "Bairro2", "Cidade2", "Estado2", "CEP2");
 
-		User user1 = new User("123456789", "John Doe", LocalDate.of(1990, 1, 1), address1);
-		User user2 = new User("987654321", "Jane Doe", LocalDate.of(1985, 5, 10), address2);
+		UsersResponse user1 = new UsersResponse("123456789", "John Doe", LocalDate.of(1990, 1, 1), address1);
+		UsersResponse user2 = new UsersResponse("987654321", "Jane Doe", LocalDate.of(1985, 5, 10), address2);
 
 		when(userRepository.findByStatus(StatusRegistro.ATIVO)).thenReturn(Arrays.asList(user1, user2));
 
-		List<User> userList = usuarioService.getUsers();
+		List<UsersResponse> userList = usuarioService.getUsers();
 
 		assertEquals(2, userList.size());
 		assertEquals(user1, userList.get(0));
