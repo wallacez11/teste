@@ -7,47 +7,93 @@ Bem-vindo à documentação da API de gerenciamento de usuários. Essa API permi
 
 ## Documentação da API
 
-#### Retorna todos os itens
+#### Cadastro para autenticar e autorizar
 
 ```http
-  Post /api/auth/login
+  Post /api/auth/register
 ```
 
-| Parâmetro   | Tipo       | Descrição                           |
-| :---------- | :--------- | :---------------------------------- |
-| `api_key` | `string` | **Obrigatório**. A chave da sua API |
+```json
+{
+  "email":"email@email.com",
+  "firstname":"exemplo",
+  "lastname":"exemplo",
+  "password":"123"
 
-#### Retorna um item
+}
+
+```
+
+#### Retorna um token jwt
 
 ```http
-  GET /api/items/${id}
+  POST /api/auth/login
 ```
 
-| Parâmetro   | Tipo       | Descrição                                   |
-| :---------- | :--------- | :------------------------------------------ |
-| `id`      | `string` | **Obrigatório**. O ID do item que você quer |
+```json
+{
+  "email":"email@email.com",
+  "password":"123"
+}
 
-#### add(num1, num2)
+```
+#### Retorna um token jwt
 
-Parâmetro	Tipo	Descrição
-email	string	Obrigatório. E-mail do usuário
-password	string	Obrigatório. Senha do usuário
-Recebe dois números e retorna a sua soma.
+
 
 
 ## Autenticação
-Antes de realizar operações que modificam dados (Create, Update, Delete), você precisa se autenticar. Utilize os endpoints register e login para obter um token de acesso. Para endpoints que exigem autenticação, adicione o token como um Bearer Token no cabeçalho de autorização.
+Antes de realizar operações que modificam dados (Create, Update, Delete), você precisa se autenticar. Utilize os endpoints register e login para obter um token de acesso. Para endpoints que exigem autenticação, adicione o token como um Bearer Token no cabeçalho de autorização `Authorization`.
+
+
+# Operações de Crud
+
+```http
+  Post /api/service/create
+```
+```json
+{
+  "cpf": "0",
+  "nome": "nome exemplo",
+  "dataNascimento": "1000-01-01",
+  "endereco": {
+    "rua": "Rua exemplo",
+    "numero": "555",
+    "complemento": "Apto 45",
+    "bairro": "Bairro Exemplo",
+    "cidade": "Cidade Exemplo",
+    "estado": "Estado Exemplo",
+    "cep": "12345-678"
+  }
+}
+```
+
+#### Cria um novo usuário
+
+
+
 ## Instalação
 
-Requerimentos
+* Requerimentos
+    * java 17 
+    * maven
+    * docker
+    * docker-compose
 
-1 - Docker
-
-2 - docker-ompose
+## Como executar o projeto
 
 ```bash
-    docker compose up // na pasta raíz do projeto
+    cd app // acessar pasta raiz
 ```
-Os serviços incluem um banco de dados MySQL, a aplicação Spring Boot e o PhpMyAdmin para gerenciamento do banco de dados.
+```bash
+    mvn clean install // instalar dependências e gerar jar
+```
+```bash
+    docker build -t testeapi . // buildar imagem da aplicação
+```
+```bash
+    docker compose up // buildar imagem da aplicação
+```
+Os serviços incluem um banco de dados MySQL, a aplicação Spring Boot.
 
-A aplicação estará disponível em http://localhost:8080, e o PhpMyAdmin estará disponível em http://localhost:8090, a senha de acesso e todas estão no docker-compose
+A aplicação estará disponível em http://localhost:8080, e o banco estará disponível em jdbc:mysql://localhost:3306/testdb, a senha de acesso esta disponível no docker-compose.
