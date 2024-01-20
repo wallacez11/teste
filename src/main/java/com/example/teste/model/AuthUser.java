@@ -1,6 +1,7 @@
 package com.example.teste.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -18,6 +19,8 @@ public class AuthUser implements UserDetails {
     @Id
     @GeneratedValue()
     private Long id;
+
+    @Email(message="invalid email")
     @Column(unique=true)
     private String email;
     private String password;

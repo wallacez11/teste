@@ -1,5 +1,6 @@
 package com.example.teste;
 
+import com.example.teste.config.JwtService;
 import com.example.teste.model.Address;
 import com.example.teste.model.StatusRegistro;
 import com.example.teste.model.User;
@@ -10,6 +11,10 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.time.LocalDate;
@@ -27,12 +32,16 @@ class UserServiceImplTest {
 	@Mock
 	private UserRepository userRepository;
 
+	@Mock
+	private JwtService jwtService;
+
 	@BeforeEach
 	void setUp() {
 		MockitoAnnotations.openMocks(this);
 	}
 
 	@Test
+	@WithMockUser(username = "admin", authorities = { "ADMIN", "USER" })
 	void testAddUser() {
 		Address address = new Address("Rua XYZ", "123", "Complemento", "Bairro", "Cidade", "Estado", "CEP");
 
@@ -41,6 +50,10 @@ class UserServiceImplTest {
 				LocalDate.of(1990, 1, 1),
 				address);
 
+
+		// Configurar o comportamento esperado para returnUsername()
+		when(jwtService.returnUsername()).thenReturn("newUser");
+		;
 		when(userRepository.save(newUser)).thenReturn(newUser);
 
 		usuarioService.addUser(newUser);
@@ -82,7 +95,7 @@ class UserServiceImplTest {
 		Address address = new Address("Rua XYZ", "123", "Complemento", "Bairro", "Cidade", "Estado", "CEP");
 		User existingUser = new User("123456789", "John Doe", LocalDate.of(1990, 1, 1),address);
 		User updatedUser = new User("123456789", "John Updated", LocalDate.of(1985, 5, 10), address);
-
+		when(jwtService.returnUsername()).thenReturn("newUser");
 		when(userRepository.findByCpf("123456789")).thenReturn(existingUser);
 
 		usuarioService.updateUser("123456789", updatedUser);
@@ -103,7 +116,7 @@ class UserServiceImplTest {
 	void testDeleteUser() {
 		Address address = new Address("Rua XYZ", "123", "Complemento", "Bairro", "Cidade", "Estado", "CEP");
 		User existingUser = new User("123456789", "John Doe", LocalDate.of(1990, 1, 1), address);
-
+		when(jwtService.returnUsername()).thenReturn("newUser");
 		when(userRepository.findByCpf("123456789")).thenReturn(existingUser);
 
 		usuarioService.deleteUser("123456789");

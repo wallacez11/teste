@@ -17,7 +17,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class UsuarioController {
 
-
+    @Autowired
     private UsuarioService userService;
 
     @PostMapping("/create")
