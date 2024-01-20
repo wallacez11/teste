@@ -42,8 +42,8 @@ além de registro e login.
 
 
 ## Autenticação
-Antes de realizar operações que modificam dados (Create, Update, Delete), você precisa se autenticar. 
-Utilize os endpoints register e login para obter um token de acesso. 
+Antes de realizar operações que modificam dados (Create, Update, Delete), você precisa se autenticar.
+Utilize os endpoints register e login para obter um token de acesso.
 Para endpoints que exigem autenticação, adicione o token como um Bearer Token no cabeçalho de autorização `Authorization`.
 
 
@@ -123,10 +123,10 @@ Caso possua postman o arquivo collections.json possui todas as chamadas disponiv
 ## Instalação
 
 * Requerimentos
-    * java 17 
-    * maven
-    * docker
-    * docker-compose
+  * java 17
+  * maven
+  * docker
+  * docker-compose
 
 ## Como executar o projeto
 
@@ -143,5 +143,5 @@ Caso possua postman o arquivo collections.json possui todas as chamadas disponiv
     docker compose up  
 ```
 Os serviços incluem um banco de dados MySQL, a aplicação Spring Boot.
-A aplicação estará disponível em http://localhost:8080, e o banco estará disponível 
+A aplicação estará disponível em http://localhost:8080, e o banco estará disponível
 em jdbc:mysql://localhost:3306/testdb, a senha de acesso está disponível no docker-compose.
